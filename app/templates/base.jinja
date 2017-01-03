@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app.name }}</title>
+  <style>
+    html, body {
+      font-family: Garamond, Georgia, serif;
+      margin: 0;
+      color: #373a3c;
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 940px;
+      background-color: white;
+      padding: 20px 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

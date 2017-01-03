@@ -1,0 +1,4 @@
+aiohttp-jinja2==0.13.0
+aiohttp==1.2.0
+trafaret-config==1.0.1
+gunicorn==19.6.0

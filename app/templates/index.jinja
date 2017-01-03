@@ -1,0 +1,13 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+  <p>Use the button below to purge all files cached in cloudflare for <a href="http://{{ app.site }}">{{ app.site }}</a>.</p>
+  <form method="post" action=".">
+    <button value="submit">Purge site</button>
+  </form>
+  {% if error_status %}
+    <h2>Error:</h2>
+    <p>status: {{ error_status }}</p>
+    <pre>{{ error_response }}</pre>
+  {% endif %}
+{% endblock %}
