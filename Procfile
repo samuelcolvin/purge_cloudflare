@@ -1,1 +1,1 @@
-web: gunicorn app.main:create_app --bind localhost:8080 --worker-class aiohttp.worker.GunicornWebWorker
+web: gunicorn app.gunicorn:app --worker-class aiohttp.worker.GunicornWebWorker

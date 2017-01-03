@@ -6,7 +6,6 @@ import jinja2
 import trafaret as t
 from aiohttp import web
 from aiohttp_jinja2 import APP_KEY as JINJA2_APP_KEY
-from trafaret_config import read_and_validate
 
 from .views import index, thanks
 
@@ -26,15 +25,6 @@ SETTINGS_STRUCTURE = t.Dict({
 })
 
 
-def load_settings() -> dict:
-    """
-    Read settings.yml and, validation its content.
-    :return: settings dict
-    """
-    settings_file = SETTINGS_FILE.resolve()
-    return read_and_validate(str(settings_file), SETTINGS_STRUCTURE)
-
-
 def setup_routes(app):
     app.router.add_route('*', '/', index, name='index')
     app.router.add_get('/thanks', thanks, name='thanks')
@@ -52,7 +42,6 @@ def create_app(loop):
         name='cloudflare purge',
         site=os.getenv('SITE', 'unknown'),
     )
-    app.update(load_settings())
 
     jinja2_loader = jinja2.FileSystemLoader(str(THIS_DIR / 'templates'))
     aiohttp_jinja2.setup(app, loader=jinja2_loader, app_key=JINJA2_APP_KEY)
