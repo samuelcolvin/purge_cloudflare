@@ -8,3 +8,5 @@ You need to set the following environment variables in Heroku:
 * **API_KEY** Your api key for cloudflare
 * **ZONE_ID** the zone ID for the site you wish to purge
 * **SITE** (optional) the url of the site being purged
+
+See [the docs](https://api.cloudflare.com/#zone-purge-all-files) for details.
